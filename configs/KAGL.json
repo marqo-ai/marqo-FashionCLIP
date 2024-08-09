@@ -1,0 +1,49 @@
+{
+  "name": "KAGL",
+  "hf_dataset": "Marqo/KAGL",
+  "tasks":[
+    {
+      "name": "text-to-image",
+      "query_col": ["text"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "category-to-product",
+      "query_col": ["category1"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "sub-category-to-product",
+      "query_col": ["category2"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "fine-category-to-product",
+      "query_col": ["category3"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "color-to-product",
+      "query_col": ["baseColour"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "season-to-product",
+      "query_col": ["season"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "usage-to-product",
+      "query_col": ["usage"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    }
+  ]
+}
+
+  

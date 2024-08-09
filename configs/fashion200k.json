@@ -1,0 +1,31 @@
+{
+  "name": "Fashion200k",
+  "hf_dataset": "Marqo/fashion200k",
+  "tasks":[
+    {
+      "name": "text-to-image",
+      "query_col": ["text"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "category-to-product",
+      "query_col": ["category1"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "sub-category-to-product",
+      "query_col": ["category2"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    },
+    {
+      "name": "fine-category-to-product",
+      "query_col": ["category3"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    }
+  ]
+}
+
+  

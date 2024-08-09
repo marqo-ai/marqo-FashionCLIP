@@ -1,0 +1,7 @@
+open_clip_torch
+transformers
+numpy
+pandas
+beir
+openpyxl
+datasets

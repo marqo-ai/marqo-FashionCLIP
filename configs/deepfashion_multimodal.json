@@ -1,0 +1,19 @@
+{
+  "name": "DeepFashion-Multimodal",
+  "hf_dataset": "Marqo/deepfashion-multimodal",
+  "tasks":[
+    {
+      "name": "text-to-image",
+      "query_col": ["text"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "category-to-product",
+      "query_col": ["category2"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    }
+  ]
+}
+
+  

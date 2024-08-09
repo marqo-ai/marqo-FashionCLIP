@@ -1,0 +1,24 @@
+{
+  "name": "iMaterialist",
+  "hf_dataset": "Marqo/iMaterialist",
+  "tasks":[
+    {
+      "name": "category-to-image",
+      "query_col": ["category"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "style-to-image",
+      "query_col": ["style"],
+      "doc_col": ["image"]
+    },
+
+    {
+      "name": "neckline-to-image",
+      "query_col": ["neckline"],
+      "doc_col": ["image"]
+    }
+  ]
+}
+
+  

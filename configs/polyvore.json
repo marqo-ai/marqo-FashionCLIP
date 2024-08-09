@@ -1,0 +1,19 @@
+{
+  "name": "Polyvore",
+  "hf_dataset": "Marqo/polyvore",
+  "tasks":[
+    {
+      "name": "text-to-image",
+      "query_col": ["text"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "category-to-product",
+      "query_col": ["category"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    }
+  ]
+}
+
+  

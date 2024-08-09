@@ -1,0 +1,19 @@
+{
+  "name": "Atlas",
+  "hf_dataset": "Marqo/atlas",
+  "tasks":[
+    {
+      "name": "text-to-image",
+      "query_col": ["text"],
+      "doc_col": ["image"]
+    },
+    {
+      "name": "sub-category-to-product",
+      "query_col": ["sub-category"],
+      "doc_col": ["image", "text"],
+      "doc_weights": [0.9, 0.1]
+    }
+  ]
+}
+
+  
