@@ -40,8 +40,7 @@ tokenizer = open_clip.get_tokenizer('hf-hub:Marqo/marqo-fashionCLIP')
 and
 ```python
 import open_clip
-model, _, _ = open_clip.create_model_and_transforms('hf-hub:Marqo/marqo-fashionSigLIP')
-_, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('ViT-B-16-SigLIP', 'webli')
+model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:Marqo/marqo-fashionSigLIP')
 tokenizer = open_clip.get_tokenizer('hf-hub:Marqo/marqo-fashionSigLIP')
 ```
 
