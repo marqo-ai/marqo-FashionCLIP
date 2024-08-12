@@ -5,5 +5,5 @@ do
     python eval.py \
         --dataset-config ./configs/${DATASET}.json \
         --model-name ${MODEL_NAME} \
-        --run-name FashionCLIP
+        --run-name FashionCLIP2.0
 done
