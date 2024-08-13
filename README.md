@@ -55,7 +55,7 @@ Then,
 import torch
 from PIL import Image
 
-image = preprocess(Image.open("docs/fashion-hippo.png")).unsqueeze(0)
+image = preprocess_val(Image.open("docs/fashion-hippo.png")).unsqueeze(0)
 text = tokenizer(["a hat", "a t-shirt", "shoes"])
 
 with torch.no_grad(), torch.cuda.amp.autocast():
