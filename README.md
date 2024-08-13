@@ -36,6 +36,7 @@ We averaged the performance of three common tasks across the datasets: text-to-i
 | ViT-B-16-SigLIP-webli      | 0.643     | 0.643     | 0.643     | 0.726     |
 
 ## Models
+### Hugging Face
 We released our models on HuggingFace: [Marqo-FashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-FashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). You can load the models with open_clip by
 
 ```python
@@ -50,7 +51,41 @@ model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms(
 tokenizer = open_clip.get_tokenizer('hf-hub:Marqo/marqo-fashionSigLIP')
 ```
 
-Scripts to evalute other models including [FashionCLIP 2.0](https://github.com/patrickjohncyh/fashion-clip) and [OpenFashionCLIP](https://github.com/aimagelab/open-fashion-clip) can be found in [scripts](scripts) directory.
+### Marqo
+Install Marqo and the Marqo python client:
+```bash
+pip install marqo
+docker pull marqoai/marqo:latest
+docker rm -f marqo
+docker run --name marqo -it -p 8882:8882 marqoai/marqo:latest
+```
+
+Create and index:
+
+```python
+import marqo
+
+settings = {
+    "type": "unstructured",
+    "model": "marqo-fashion-clip", # model name
+    "modelProperties": {
+        "name": "ViT-B-16", # model architecture
+        "dimensions": 512, # embedding dimensions
+        "url": "https://marqo-gcl-public.s3.us-west-2.amazonaws.com/marqo-fashionCLIP/marqo_fashionCLIP.pt", # model weights
+        "type": "open_clip" # loading library
+    },
+}
+
+mq = marqo.Client()
+
+mq.create_index("fashion-index", settings_dict=settings)
+
+# triggers model download
+mq.index("fashion-index").search("black dress")
+
+```
+
+See the [full documentation](https://docs.marqo.ai/2.11/#multi-modal-and-cross-modal-search) for more details on adding documents and searching.
 
 ## Installation
 Install PyTorch first and run 
@@ -78,6 +113,7 @@ python eval.py \
 ```
 - `DATASET` can be one of ['deepfashion_inshop', 'deepfashion_multimodal', 'fashion200k', 'KAGL', 'atlas', 'polyvore' 'iMaterialist']
 
+Scripts to evalute other models including [FashionCLIP 2.0](https://github.com/patrickjohncyh/fashion-clip) and [OpenFashionCLIP](https://github.com/aimagelab/open-fashion-clip) can be found in [scripts](scripts) directory.
 
 ## Datasets
 We collected 7 public multimodal fashion datasets and uploaded to HuggingFace: [Atlas](https://huggingface.co/datasets/Marqo/atlas), [DeepFashion (In-shop)](https://huggingface.co/datasets/Marqo/deepfashion-inshop), [DeepFashion (Multimodal)](https://huggingface.co/datasets/Marqo/deepfashion-multimodal), [Fashion200k](https://huggingface.co/datasets/Marqo/fashion200k), [iMaterialist](https://huggingface.co/datasets/Marqo/iMaterialist), [KAGL](https://huggingface.co/datasets/Marqo/KAGL), and [Polyvore](https://huggingface.co/datasets/Marqo/polyvore). Each dataset has different metadata available. Thus, tasks for each dataset are stored as json files in [scripts](scripts) directory. Refer to our [blog](https://www.marqo.ai/blog) for more information about each dataset.
