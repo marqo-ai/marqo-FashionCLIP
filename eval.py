@@ -80,7 +80,7 @@ if __name__ == "__main__":
             logging.info("Loading ground truth")
             with open(gt_results_path, "r") as f:
                 gt_results = json.load(f)
-                test_queries = list(gt_results.keys())
+                test_queries = list(gt_results.keys()) # randomly sampled queries (up to 2000)
             
             # Running retrieval
             retrieval_path = os.path.join(task_dir, f"retrieved_{query_col}-{'+'.join(task['doc_col'])}.json")
