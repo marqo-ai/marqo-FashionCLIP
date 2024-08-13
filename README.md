@@ -1,9 +1,9 @@
 # Marqo FashionCLIP
 
-This repository is for evaluating Marqo FashionCLIP and Marqo FashionSigLIP against 7 public benchmark datasets. Read more about our models on our [blog](https://www.marqo.ai/blog) and refer to [LEADERBOARD](LEADERBOARD.md) for the performance comparison.
+This repository is for evaluating Marqo-FashionCLIP and Marqo-FashionSigLIP against 7 public benchmark datasets. Read more about our models on our [blog](https://www.marqo.ai/blog) and refer to [LEADERBOARD](LEADERBOARD.md) for the performance comparison.
 
 ## Models
-We released our models on HuggingFace: [Marqo-fashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-fashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). You can load the models with open_clip by
+We released our models on HuggingFace: [Marqo-FashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-FashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). You can load the models with open_clip by
 
 ```python
 import open_clip
@@ -27,7 +27,7 @@ pip -r requirements.txt
 
 ## Quick Start
 
-To evaluate Marqo FashionCLIP, run this command
+To evaluate Marqo-FashionCLIP, run this command
 ```bash
 python eval.py \
         --dataset-config ./configs/${DATASET}.json \
@@ -36,7 +36,7 @@ python eval.py \
 ```
 - `DATASET` can be one of ['deepfashion_inshop', 'deepfashion_multimodal', 'fashion200k', 'KAGL', 'atlas', 'polyvore' 'iMaterialist']
 
-To evaluate Marqo FashionSigLIP, run this command
+To evaluate Marqo-FashionSigLIP, run this command
 ```bash
 python eval.py \
         --dataset-config ./configs/${DATASET}.json \
