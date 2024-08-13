@@ -1,6 +1,6 @@
-# Marqo FashionCLIP
+# Marqo-FashionCLIP
 
-This repository is designed to evaluate Marqo-FashionCLIP and Marqo-FashionSigLIP across seven public benchmark datasets. Read more about the models on our [blog](https://www.marqo.ai/blog).
+This repository is designed to evaluate Marqo-FashionCLIP and Marqo-FashionSigLIP across seven public benchmark datasets. Read more about the models on our [blog](https://www.marqo.ai/blog/search-model-for-fashion).
 
 ## Benchmark Results
 We averaged the performance of three common tasks across the datasets: text-to-image, category-to-product, and sub-category-to-product. As demonstrated below, Marqo-FashionCLIP and Marqo-FashionSigLIP outperform both pretrained OpenCLIP models and the state-of-the-art fashion CLIP models. For a more comprehensive performance comparison, refer to the [LEADERBOARD](LEADERBOARD.md).
@@ -87,13 +87,11 @@ mq.index("fashion-index").search("black dress")
 
 See the [full documentation](https://docs.marqo.ai/2.11/#multi-modal-and-cross-modal-search) for more details on adding documents and searching.
 
-## Installation
+## Quick Start
 Install PyTorch first and run 
 ```bash
 pip -r requirements.txt
 ```
-
-## Quick Start
 
 To evaluate Marqo-FashionCLIP, run this command
 ```bash
@@ -116,7 +114,7 @@ python eval.py \
 Scripts to evalute other models including [FashionCLIP 2.0](https://github.com/patrickjohncyh/fashion-clip) and [OpenFashionCLIP](https://github.com/aimagelab/open-fashion-clip) can be found in [scripts](scripts) directory.
 
 ## Datasets
-We collected 7 public multimodal fashion datasets and uploaded to HuggingFace: [Atlas](https://huggingface.co/datasets/Marqo/atlas), [DeepFashion (In-shop)](https://huggingface.co/datasets/Marqo/deepfashion-inshop), [DeepFashion (Multimodal)](https://huggingface.co/datasets/Marqo/deepfashion-multimodal), [Fashion200k](https://huggingface.co/datasets/Marqo/fashion200k), [iMaterialist](https://huggingface.co/datasets/Marqo/iMaterialist), [KAGL](https://huggingface.co/datasets/Marqo/KAGL), and [Polyvore](https://huggingface.co/datasets/Marqo/polyvore). Each dataset has different metadata available. Thus, tasks for each dataset are stored as json files in [scripts](scripts) directory. Refer to our [blog](https://www.marqo.ai/blog) for more information about each dataset.
+We collected 7 public multimodal fashion datasets and uploaded to HuggingFace: [Atlas](https://huggingface.co/datasets/Marqo/atlas), [DeepFashion (In-shop)](https://huggingface.co/datasets/Marqo/deepfashion-inshop), [DeepFashion (Multimodal)](https://huggingface.co/datasets/Marqo/deepfashion-multimodal), [Fashion200k](https://huggingface.co/datasets/Marqo/fashion200k), [iMaterialist](https://huggingface.co/datasets/Marqo/iMaterialist), [KAGL](https://huggingface.co/datasets/Marqo/KAGL), and [Polyvore](https://huggingface.co/datasets/Marqo/polyvore). Each dataset has different metadata available. Thus, tasks for each dataset are stored as json files in [scripts](scripts) directory. Refer to our [blog](https://www.marqo.ai/blog/search-model-for-fashion) for more information about each dataset.
 
 ## Summarizing Results
 To renew [LEADERBOARD.md](LEADERBOARD.md) and summarize results of different models locally, run this command
