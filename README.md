@@ -68,17 +68,19 @@ with torch.no_grad(), torch.cuda.amp.autocast():
 
 print("Label probs:", text_probs)
 ```
+We released this [article](https://www.marqo.ai/blog/ecommerce-image-classification-with-marqo-fashionclip) illustrating a simple ecommerce search with a fashion dataset if you want to see the model in action.
 
 ### Marqo
-Install Marqo and the Marqo python client:
+
+To deploy on Marqo Cloud (recommended):
+1. [Sign Up](https://cloud.marqo.ai/) to [Marqo Cloud](https://cloud.marqo.ai/).
+
+2. Install Marqo and the Marqo python client:
 ```bash
 pip install marqo
-docker pull marqoai/marqo:latest
-docker rm -f marqo
-docker run --name marqo -it -p 8882:8882 marqoai/marqo:latest
 ```
 
-Create and index:
+3. Create and index:
 
 ```python
 import marqo
@@ -94,7 +96,8 @@ settings = {
     },
 }
 
-mq = marqo.Client()
+api_key = "your_api_key"  # replace with your api key (https://www.marqo.ai/blog/finding-my-marqo-api-key)
+mq = marqo.Client("https://api.marqo.ai", api_key=api_key)
 
 mq.create_index("fashion-index", settings_dict=settings)
 
