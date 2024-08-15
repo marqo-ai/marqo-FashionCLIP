@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Jung"
+  given-names: "David"
+  orcid:
+- family-names: "Clark"
+  given-names: "Jesse"
+  orcid:
+title: "Marqo-FashionCLIP and Marqo-FashionSigLIP"
+version: 1.0.0
+doi: 
+date-released: 2024-08-14
+url: "https://github.com/marqo-ai/marqo-FashionCLIP"
