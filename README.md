@@ -142,3 +142,15 @@ To renew [LEADERBOARD.md](LEADERBOARD.md) and summarize results of different mod
 ```bash
 python summarize_results.py
 ```
+
+## Citation
+```
+@software{Jung_Marqo-FashionCLIP_and_Marqo-FashionSigLIP_2024,
+author = {Jung, David and Clark, Jesse},
+month = aug,
+title = {{Marqo-FashionCLIP and Marqo-FashionSigLIP}},
+url = {https://github.com/marqo-ai/marqo-FashionCLIP},
+version = {1.0.0},
+year = {2024}
+}
+```
