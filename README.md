@@ -146,7 +146,7 @@ python summarize_results.py
 ## Citation
 ```
 @software{Jung_Marqo-FashionCLIP_and_Marqo-FashionSigLIP_2024,
-author = {Jung, David and Clark, Jesse},
+author = {Jung, Myong Chol and Clark, Jesse},
 month = aug,
 title = {{Marqo-FashionCLIP and Marqo-FashionSigLIP}},
 url = {https://github.com/marqo-ai/marqo-FashionCLIP},
