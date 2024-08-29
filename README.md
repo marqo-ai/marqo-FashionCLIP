@@ -37,7 +37,9 @@ We averaged the performance of three common tasks across the datasets: text-to-i
 
 ## Models
 ### Hugging Face
-We released our models on HuggingFace: [Marqo-FashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-FashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). You can load the models with open_clip by
+We released our models on HuggingFace: [Marqo-FashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-FashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). We also have a Hugging Face Space Demo of our models in action: [Classification with Marqo-FashionSigLIP](https://huggingface.co/spaces/Marqo/Marqo-FashionSigLIP-Classification).
+
+You can load the models with `open_clip` by
 
 ```python
 import open_clip
