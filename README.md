@@ -113,7 +113,7 @@ See the [full documentation](https://docs.marqo.ai/2.11/#multi-modal-and-cross-m
 ## Quick Start
 Install PyTorch first and run 
 ```bash
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 To evaluate Marqo-FashionCLIP, run this command
