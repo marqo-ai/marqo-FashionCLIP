@@ -1,6 +1,7 @@
 from datasets import load_dataset
 import logging
 import os
+import torch
 
 class Transform(object):
     def __init__(self, tokenizer, preprocess, doc_text_cols):
@@ -13,8 +14,17 @@ class Transform(object):
             
         if self.doc_text_cols:
             for col in self.doc_text_cols:
-                batch[col] = [self.tokenizer(text)[0] for text in batch[col]]
+                batch[col] = [self._squeeze(self.tokenizer(text)) for text in batch[col]]
         return batch
+    
+    @staticmethod
+    def _squeeze(data):
+        if not isinstance(data, torch.Tensor):
+            for key in data.keys():
+                data[key] = data[key].squeeze()
+            return data
+        else:
+            return data.squeeze()
 
 def get_dataset(args, tokenizer, preprocess):
     logging.info('Loading dataset from huggingface.')

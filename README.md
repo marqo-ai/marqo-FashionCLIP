@@ -39,6 +39,40 @@ We averaged the performance of three common tasks across the datasets: text-to-i
 ### Hugging Face
 We released our models on HuggingFace: [Marqo-FashionCLIP](https://huggingface.co/Marqo/marqo-fashionCLIP) and [Marqo-FashionSigLIP](https://huggingface.co/Marqo/marqo-fashionSigLIP). We also have a Hugging Face Space Demo of our models in action: [Classification with Marqo-FashionSigLIP](https://huggingface.co/spaces/Marqo/Marqo-FashionSigLIP-Classification).
 
+You can load the models with `transformers` by
+
+```python
+from transformers import AutoModel, AutoProcessor
+model = AutoModel.from_pretrained('Marqo/marqo-fashionCLIP', trust_remote_code=True)
+processor = AutoProcessor.from_pretrained('Marqo/marqo-fashionCLIP', trust_remote_code=True)
+```
+and
+```python
+from transformers import AutoModel, AutoProcessor
+model = AutoModel.from_pretrained('Marqo/marqo-fashionSigLIP', trust_remote_code=True)
+processor = AutoProcessor.from_pretrained('Marqo/marqo-fashionSigLIP', trust_remote_code=True)
+```
+Then,
+```python
+import torch
+from PIL import Image
+
+image = [Image.open("docs/fashion-hippo.png")]
+text = ["a hat", "a t-shirt", "shoes"]
+processed = processor(text=text, images=image, padding='max_length', return_tensors="pt")
+
+with torch.no_grad():
+    image_features = model.get_image_features(processed['pixel_values'], normalize=True)
+    text_features = model.get_text_features(processed['input_ids'], normalize=True)
+
+    text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+
+print("Label probs:", text_probs)
+```
+
+We released this [article](https://www.marqo.ai/blog/ecommerce-image-classification-with-marqo-fashionclip) illustrating a simple ecommerce search with a fashion dataset if you want to see the model in action.
+
+### OpenCLIP
 You can load the models with `open_clip` by
 
 ```python
@@ -61,16 +95,13 @@ image = preprocess_val(Image.open("docs/fashion-hippo.png")).unsqueeze(0)
 text = tokenizer(["a hat", "a t-shirt", "shoes"])
 
 with torch.no_grad(), torch.cuda.amp.autocast():
-    image_features = model.encode_image(image)
-    text_features = model.encode_text(text)
-    image_features /= image_features.norm(dim=-1, keepdim=True)
-    text_features /= text_features.norm(dim=-1, keepdim=True)
+    image_features = model.encode_image(image, normalize=True)
+    text_features = model.encode_text(text, normalize=True)
 
     text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
 
 print("Label probs:", text_probs)
 ```
-We released this [article](https://www.marqo.ai/blog/ecommerce-image-classification-with-marqo-fashionclip) illustrating a simple ecommerce search with a fashion dataset if you want to see the model in action.
 
 ### Marqo
 
